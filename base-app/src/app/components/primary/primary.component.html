@@ -1,0 +1,9 @@
+<h1> Filter names by lenght sizes</h1>
+<button *ngFor="let length of lengthSizes" (click)="setLengthSize(length)">{{ 'length size ' + length}}</button>
+<button *ngIf="maxLength>0" (click)="setLengthSize(0)">Limpiar</button>
+<h2 *ngIf="maxLength===0">Set length size for show results</h2>
+<ul>
+    <li *ngFor="let item of (namesList | smallNamesPipe: maxLength) let index = index " class="animate__animated animate__fadeIn animate__faster">
+        {{(index + 1) + '-'+ item.name}}
+    </li>
+</ul>
